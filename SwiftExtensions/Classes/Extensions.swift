@@ -9,7 +9,7 @@
 import UIKit
 
 //    MARK: UIView extensions
-extension UIView {
+public extension UIView {
     func addSubViews(views: [UIView]) {
         views.forEach({ self.addSubview($0) })
     }
@@ -109,7 +109,7 @@ extension UIView {
 }
 
 //    MARK: UIViewController extensions
-extension UIViewController {
+public extension UIViewController {
     
     func showAlert(title: String?, message: String?, buttonTitles: [String]? = nil, highlightedButtonIndex: Int? = nil, completion: ((Int) -> Void)? = nil) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -190,7 +190,7 @@ extension UIViewController {
     
 }
 //    MARK: Date extensions
-extension Date {
+public extension Date {
     
     func getDateFormat() -> String {
         
@@ -213,7 +213,7 @@ extension Date {
 }
 
 //    MARK: String extensions
-extension String {
+public extension String {
     
     func getTime(from FromDateFormat: String, to ToDateFormat: String) -> String {
         
@@ -241,7 +241,7 @@ extension String {
 }
 
 //    MARK: UINavigationBar extensions
-extension UINavigationBar {
+public extension UINavigationBar {
     
     public func setTitleFont(_ font: UIFont, color: UIColor = .black) {
         var attrs = [NSAttributedStringKey: Any]()
@@ -272,7 +272,7 @@ extension UINavigationBar {
 }
 
 //    MARK: UINavigationController extensions
-extension UINavigationController {
+public extension UINavigationController {
     
     public func navigationSetups(title: String, navViewColor: UIColor, navTintColor: UIColor, backTitle: String) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: backTitle, style: .done, target: self, action: nil)
@@ -313,14 +313,14 @@ extension UINavigationController {
 }
 
 //    MARK: Collection extensions
-extension Collection where Indices.Iterator.Element == Index {
+public extension Collection where Indices.Iterator.Element == Index {
     subscript (exist index: Index) -> Iterator.Element? {
         return indices.contains(index) ? self[index] : nil
     }
 }
 
 //    MARK: UITextView extensions
-extension UITextView {
+public extension UITextView {
     
     func numberOfLines() -> Int{
         if let fontUnwrapped = self.font{
@@ -340,7 +340,7 @@ extension UITextView {
 }
 
 //    MARK: UIColor extensions
-extension UIColor {
+public extension UIColor {
     static func hexStringToUIColor (hex: String) -> UIColor {
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
@@ -365,7 +365,7 @@ extension UIColor {
 }
 
 //    MARK: UIStackView extensions
-extension UIStackView {
+public extension UIStackView {
     func addArrangedSubViews(views: [UIView]) {
         views.forEach({ self.addArrangedSubview($0) })
     }
