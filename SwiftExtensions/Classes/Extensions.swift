@@ -126,7 +126,11 @@ public extension UIViewController {
             alertController.addAction(action)
             
             if let highlightedButtonIndex = highlightedButtonIndex, index == highlightedButtonIndex {
-                alertController.preferredAction = action
+                if #available(iOS 9.0, *) {
+                    alertController.preferredAction = action
+                } else {
+                    // Fallback on earlier versions
+                }
             }
         }
         present(alertController, animated: true, completion: nil)
@@ -365,6 +369,7 @@ public extension UIColor {
 }
 
 //    MARK: UIStackView extensions
+@available(iOS 9.0, *)
 public extension UIStackView {
     func addArrangedSubViews(views: [UIView]) {
         views.forEach({ self.addArrangedSubview($0) })
