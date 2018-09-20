@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SwiftExtensions_Example' do
+  pod 'SwiftExtensions', :path => '../'
+
+  target 'SwiftExtensions_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
